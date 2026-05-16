@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Velora</title>
+  <link rel="stylesheet" href="Window.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      VELORA
+    </div>
+
+    <ul>
+      <li>HOME</li>
+      <li>SHOP</li>
+      <li>COUPLE COLLECTION</li>
+      <li>MEN</li>
+      <li>WOMEN</li>
+      <li>NEW ARRIVALS</li>
+    </ul>
+
+    <div class="icons">
+      🔍 🤍 🛒
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Match Your <br>
+        Vibe <span>Together</span>
+      </h1>
+
+      <p>
+        Explore premium couple outfits designed to match your vibe and create unforgettable moments together.
+      </p>
+
+      <div class="hero-btns">
+        <button class="btn1">SHOP COUPLES</button>
+        <button class="btn2">EXPLORE COLLECTION</button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <div class="feature-box">
+      ❤️
+      <h3>Perfect Match</h3>
+      <p>Curated for couples</p>
+    </div>
+
+    <div class="feature-box">
+      ✨
+      <h3>Premium Quality</h3>
+      <p>Comfort & durability</p>
+    </div>
+
+    <div class="feature-box">
+      🚚
+      <h3>Fast Delivery</h3>
+      <p>Across India</p>
+    </div>
+
+    <div class="feature-box">
+      🔄
+      <h3>Easy Returns</h3>
+      <p>Hassle free returns</p>
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>Trending Couple Fits</h2>
+      <span>VIEW ALL</span>
+    </div>
+
+    <div class="products">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>Classic Couple Hoodie</h3>
+          <div class="price">₹2,199</div>
+          <button class="match-btn">MATCH THIS OUTFIT</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>Beige Streetwear Set</h3>
+          <div class="price">₹2,499</div>
+          <button class="match-btn">MATCH THIS OUTFIT</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>Pastel Love Hoodie</h3>
+          <div class="price">₹1,999</div>
+          <button class="match-btn">MATCH THIS OUTFIT</button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+<!-- TRY ON SECTION -->
+
+<section class="tryon-section">
+
+  <div class="tryon-left">
+
+    <h1>Virtual Try-On</h1>
+
+    <p>
+      Upload your image and preview your outfit instantly.
+    </p>
+
+    <input type="file" id="upload" accept="image/*">
+
+  </div>
+
+<div class="preview-box">
+
+  <img id="userImage" class="user-img">
+
+  <img
+    src="hoodie.png"
+    class="hoodie"
+    id="hoodie"
+  >
+
+</div>
+
+</section>
+  <!-- BANNER -->
+
+  <section class="banner">
+
+    <div class="banner-content">
+
+      <h1>
+        Buy Together <br>
+        & Save More
+      </h1>
+
+      <p>
+        Shop matching couple fits and unlock exclusive combo offers designed specially for stylish couples.
+      </p>
+
+      <button>EXPLORE COMBOS</button>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h1>VELORA</h1>
+
+    <p>
+      Match your vibe together with premium couple fashion designed for modern love stories.
+    </p>
+<div class="banner-points">
+
+  <div class="point">
+    ✨
+    <h3>Special Discounts</h3>
+    <p>On Couple Combos</p>
+  </div>
+
+  <div class="point">
+    ❤️
+    <h3>Perfectly Matched</h3>
+    <p>Handpicked For You</p>
+  </div>
+
+  <div class="point">
+    🔥
+    <h3>Trending Styles</h3>
+    <p>Latest Couple Fits</p>
+  </div>
+
+  <div class="point">
+    🛍️
+    <h3>Premium Quality</h3>
+    <p>Comfort You’ll Love</p>
+  </div>
+
+</div>
+  </footer>
+<script>
+
+const upload = document.getElementById("upload");
+const userImage = document.getElementById("userImage");
+const hoodie = document.getElementById("hoodie");
+
+upload.addEventListener("change", async function(){
+
+  const file = this.files[0];
+
+  if(file){
+
+    const imageURL = URL.createObjectURL(file);
+
+    userImage.src = imageURL;
+
+    userImage.onload = async ()=>{
+
+      const pose = new Pose({
+
+        locateFile: (file)=>{
+          return `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`;
+        }
+
+      });
+
+      pose.setOptions({
+
+        modelComplexity:1,
+        smoothLandmarks:true,
+        enableSegmentation:false,
+        minDetectionConfidence:0.5,
+        minTrackingConfidence:0.5
+
+      });
+
+      pose.onResults((results)=>{
+
+        if(results.poseLandmarks){
+
+          const leftShoulder = results.poseLandmarks[11];
+          const rightShoulder = results.poseLandmarks[12];
+
+          const previewBox = document.querySelector(".preview-box");
+
+          const boxWidth = previewBox.offsetWidth;
+          const boxHeight = previewBox.offsetHeight;
+
+          const leftX = leftShoulder.x * boxWidth;
+          const rightX = rightShoulder.x * boxWidth;
+
+          const shoulderWidth = Math.abs(rightX - leftX);
+
+          hoodie.style.width = shoulderWidth * 2 + "px";
+
+          hoodie.style.left =
+          ((leftX + rightX) / 2) - (hoodieWidth / 2) + "px";
+
+          hoodie.style.top =
+            (leftShoulder.y * boxHeight) - 30 + "px";
+
+        }
+
+      });
+
+      await pose.send({image:userImage});
+
+    };
+
+  }
+
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</body>
+</html>
+
