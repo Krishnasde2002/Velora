@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="Window.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>   
-  *{
+<style>
+      *{
       margin:0;
       padding:0;
       box-sizing:border-box;
@@ -370,8 +370,8 @@
   position:relative;
   box-shadow:0 10px 30px rgba(0,0,0,.08);
   display:flex;
-justify-content:center;
-align-items:center;
+  justify-content:center;
+  align-items:center;
 }
 
 .user-img{
@@ -411,11 +411,78 @@ align-items:center;
   margin-top:5px;
   line-height:22px;
 }
+/* CART */
+
+.cart-icon{
+  cursor:pointer;
+}
+
+#cart-count{
+  background:#d49a96;
+  padding:2px 8px;
+  border-radius:50%;
+  font-size:12px;
+}
+
+.cart-sidebar{
+  width:380px;
+  height:100vh;
+  background:white;
+  position:fixed;
+  top:0;
+  right:-400px;
+  z-index:99999;
+  transition:.4s;
+  padding:25px;
+  overflow-y:auto;
+  box-shadow:-5px 0 20px rgba(0,0,0,.15);
+}
+
+.cart-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.cart-top span{
+  cursor:pointer;
+  font-size:22px;
+}
+
+.cart-item{
+  margin-bottom:20px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:15px;
+}
+
+.cart-item h3{
+  font-size:17px;
+}
+
+.cart-item p{
+  margin-top:8px;
+  color:#d49a96;
+}
+.cart-item{
+  display:flex;
+  gap:15px;
+  align-items:center;
+  margin-bottom:20px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:15px;
+}
+
+.cart-img{
+  width:80px;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+
+
 </style>
-
-
-
-
 
 </head>
 <body>
@@ -438,7 +505,10 @@ align-items:center;
     </ul>
 
     <div class="icons">
-      🔍 🤍 🛒
+      🔍 🤍   
+      <div class="cart-icon" onclick="openCart()">
+    🛒 <span id="cart-count">0</span>
+  </div>
     </div>
 
   </nav>
@@ -514,7 +584,10 @@ align-items:center;
         <div class="card-content">
           <h3>Classic Couple Hoodie</h3>
           <div class="price">₹2,199</div>
-          <button class="match-btn">MATCH THIS OUTFIT</button>
+          <button class="match-btn"
+          onclick="addToCart(
+            'Classic Couple Hoodie',
+            2499,'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=300')">ADD TO CART</button>
         </div>
       </div>
 
@@ -524,7 +597,10 @@ align-items:center;
         <div class="card-content">
           <h3>Beige Streetwear Set</h3>
           <div class="price">₹2,499</div>
-          <button class="match-btn">MATCH THIS OUTFIT</button>
+          <button class="match-btn"
+          onclick="addToCart(
+            'Beige Streetwear Set',
+            2499,'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=300')">ADD TO CART</button>
         </div>
       </div>
 
@@ -534,7 +610,9 @@ align-items:center;
         <div class="card-content">
           <h3>Pastel Love Hoodie</h3>
           <div class="price">₹1,999</div>
-          <button class="match-btn">MATCH THIS OUTFIT</button>
+          <button class="match-btn"
+          onclick="addToCart('Pastel Love Hoodie',
+            2499,'C:\Users\Krishna\Desktop\Window\3.png')">ADD TO CART</button>
         </div>
       </div>
 
@@ -588,19 +666,7 @@ align-items:center;
       <button>EXPLORE COMBOS</button>
 
     </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <h1>VELORA</h1>
-
-    <p>
-      Match your vibe together with premium couple fashion designed for modern love stories.
-    </p>
-<div class="banner-points">
+    <div class="banner-points">
 
   <div class="point">
     ✨
@@ -627,6 +693,18 @@ align-items:center;
   </div>
 
 </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h1>VELORA</h1>
+
+    <p>
+      Match your vibe together with premium couple fashion designed for modern love stories.
+    </p>
+
   </footer>
 <script>
 
@@ -681,7 +759,8 @@ upload.addEventListener("change", async function(){
 
           const shoulderWidth = Math.abs(rightX - leftX);
 
-          hoodie.style.width = shoulderWidth * 2 + "px";
+          let hoodieWidth = shoulderWidth * 1.2;
+          hoodie.style.width = hoodieWidth + "px";
 
           hoodie.style.left =
           ((leftX + rightX) / 2) - (hoodieWidth / 2) + "px";
@@ -700,10 +779,98 @@ upload.addEventListener("change", async function(){
   }
 
 });
+let cart = [];
 
+function addToCart(name,price){
+
+  cart.push({name,price});
+
+  document.getElementById("cart-count").innerText = cart.length;
+
+  renderCart();
+
+}
+
+function renderCart(){
+
+  let cartItems = document.getElementById("cart-items");
+
+  cartItems.innerHTML = "";
+
+  cart.forEach((item)=>{
+
+    cartItems.innerHTML += `
+
+      <div class="cart-item">
+
+        <h3>${item.name}</h3>
+
+        <p>₹${item.price}</p>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+function openCart(){
+
+  document.getElementById("cart").style.right = "0";
+
+}
+
+function closeCart(){
+
+  document.getElementById("cart").style.right = "-400px";
+
+}
+function renderCart(){
+
+  let cartItems = document.getElementById("cart-items");
+
+  cartItems.innerHTML = "";
+
+  cart.forEach((item)=>{
+
+    cartItems.innerHTML += `
+
+      <div class="cart-item">
+
+        <img src="${item.image}" class="cart-img">
+
+        <div>
+
+          <h3>${item.name}</h3>
+
+          <p>₹${item.price}</p>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+}
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<div class="cart-sidebar" id="cart">
+
+  <div class="cart-top">
+
+    <h2>Your Cart</h2>
+
+    <span onclick="closeCart()">✖</span>
+
+  </div>
+
+  <div id="cart-items"></div>
+
+</div>
 </body>
 </html>
 
