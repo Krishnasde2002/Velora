@@ -13,7 +13,9 @@
       padding:0;
       box-sizing:border-box;
     }
-
+html{
+  scroll-behavior:smooth;
+}
     body{
       background:#f7f3f0;
       font-family:'Poppins',sans-serif;
@@ -22,18 +24,27 @@
 
     /* NAVBAR */
 
-    nav{
-      width:100%;
-      height:75px;
-      background:black;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:0 60px;
-      position:fixed;
-      top:0;
-      z-index:1000;
-    }
+nav{
+  width:100%;
+  height:75px;
+
+  background:rgba(0,0,0,.45);
+
+  backdrop-filter:blur(12px);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:0 60px;
+
+  position:fixed;
+  top:0;
+
+  z-index:1000;
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
 
     .logo{
       font-size:38px;
@@ -110,15 +121,22 @@
       gap:20px;
     }
 
-    .btn1{
-      padding:16px 35px;
-      background:#d49a96;
-      border:none;
-      color:white;
-      border-radius:8px;
-      font-weight:500;
-      cursor:pointer;
-    }
+.btn1{
+  padding:16px 35px;
+  background:#d49a96;
+  border:none;
+  color:white;
+  border-radius:10px;
+  font-weight:500;
+  cursor:pointer;
+
+  transition:.4s;
+}
+
+.btn1:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(212,154,150,.4);
+}
 
     .btn2{
       padding:16px 35px;
@@ -157,9 +175,15 @@
 
     /* PRODUCTS */
 
-    .section{
-      padding:70px 70px;
-    }
+.section{
+  padding:70px 70px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  z-index:1;
+}
 
     .section-title{
       display:flex;
@@ -300,6 +324,17 @@
 
     @media(max-width:900px){
 
+     .bg-video{
+
+       object-position:center;
+
+      }
+      nav{
+       padding:0 20px;
+      }
+      .products{
+        grid-template-columns:1fr;
+      }
       nav ul{
         display:none;
       }
@@ -327,6 +362,9 @@
         padding:40px 30px;
       }
 
+    }
+    .video-section{
+       height:40vh;
     }
 /* TRY ON SECTION */
 
@@ -479,9 +517,145 @@
   object-fit:cover;
   border-radius:10px;
 }
+.cart-info{
+  flex:1;
+}
 
+.remove-btn{
+  margin-top:10px;
+  padding:8px 14px;
+  border:none;
+  background:black;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  transition:.3s;
+}
 
+.remove-btn:hover{
+  background:#d49a96;
+}
 
+.cart-total{
+  margin-top:30px;
+  font-size:22px;
+  font-weight:600;
+  text-align:center;
+  padding:20px;
+  background:#f5f5f5;
+  border-radius:15px;
+}
+.card{
+  position:relative;
+  overflow:hidden;
+}
+.card img{
+  transition:.5s;
+}
+
+.card:hover img{
+  transform:scale(1.08);
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,.15);
+  transition:.6s;
+  z-index:2;
+}
+
+.card:hover::before{
+  left:100%;
+}
+.hero-content h1{
+  font-size:48px;
+  line-height:52px;
+}
+.card{
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#eee;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#d49a96;
+  border-radius:20px;
+}
+.hero-content{
+  animation:fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+#changing-text{
+  color:#e3a5a1;
+  font-style:italic;
+
+  transition:.5s;
+}
+/* VIDEO SECTION */
+
+.video-section{
+  width:100%;
+  height:70vh;
+
+  overflow:hidden;
+
+  position:relative;
+}
+
+.video-section video{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+}
+.bg-video{
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:.10;
+
+  z-index:-1;
+
+  pointer-events:none;
+
+}
 </style>
 
 </head>
@@ -521,7 +695,7 @@
 
       <h1>
         Match Your <br>
-        Vibe <span>Together</span>
+        <span id="changing-text">Vibe Together</span>
       </h1>
 
       <p>
@@ -536,6 +710,9 @@
     </div>
 
   </section>
+  <!-- FASHION VIDEO SECTION -->
+
+
 
   <!-- FEATURES -->
 
@@ -569,7 +746,12 @@
 
   <!-- PRODUCTS -->
 
-  <section class="section">
+  <section class="section" id="couples">
+    <video class="bg-video" autoplay muted loop playsinline>
+
+  <source src="fashion.mp4" type="video/mp4">
+
+</video>
 
     <div class="section-title">
       <h2>Trending Couple Fits</h2>
@@ -605,7 +787,7 @@
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=300">
 
         <div class="card-content">
           <h3>Pastel Love Hoodie</h3>
@@ -779,11 +961,16 @@ upload.addEventListener("change", async function(){
   }
 
 });
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("veloraCart")) || [];
 
-function addToCart(name,price){
+function addToCart(name,price,image){
 
-  cart.push({name,price});
+  cart.push({name,price,image});
+
+  localStorage.setItem(
+    "veloraCart",
+    JSON.stringify(cart)
+  );
 
   document.getElementById("cart-count").innerText = cart.length;
 
@@ -795,23 +982,48 @@ function renderCart(){
 
   let cartItems = document.getElementById("cart-items");
 
+  let total = 0;
+
   cartItems.innerHTML = "";
 
-  cart.forEach((item)=>{
+  cart.forEach((item,index)=>{
+
+    total += item.price;
 
     cartItems.innerHTML += `
 
       <div class="cart-item">
 
-        <h3>${item.name}</h3>
+        <img src="${item.image}" class="cart-img">
 
-        <p>₹${item.price}</p>
+        <div class="cart-info">
+
+          <h3>${item.name}</h3>
+
+          <p>₹${item.price}</p>
+
+          <button class="remove-btn"
+          onclick="removeItem(${index})">
+          Remove
+          </button>
+
+        </div>
 
       </div>
 
     `;
 
   });
+
+  cartItems.innerHTML += `
+
+    <div class="cart-total">
+
+      TOTAL : ₹${total}
+
+    </div>
+
+  `;
 
 }
 
@@ -830,9 +1042,13 @@ function renderCart(){
 
   let cartItems = document.getElementById("cart-items");
 
+  let total = 0;
+
   cartItems.innerHTML = "";
 
-  cart.forEach((item)=>{
+  cart.forEach((item,index)=>{
+
+    total += item.price;
 
     cartItems.innerHTML += `
 
@@ -840,11 +1056,16 @@ function renderCart(){
 
         <img src="${item.image}" class="cart-img">
 
-        <div>
+        <div class="cart-info">
 
           <h3>${item.name}</h3>
 
           <p>₹${item.price}</p>
+
+          <button class="remove-btn"
+          onclick="removeItem(${index})">
+          Remove
+          </button>
 
         </div>
 
@@ -854,7 +1075,58 @@ function renderCart(){
 
   });
 
+  cartItems.innerHTML += `
+
+    <div class="cart-total">
+
+      TOTAL : ₹${total}
+
+    </div>
+
+  `;
+
 }
+
+
+
+function removeItem(index){
+
+  cart.splice(index,1);
+  localStorage.setItem("veloraCart",JSON.stringify(cart));
+
+  document.getElementById("cart-count").innerText = cart.length;
+
+  renderCart();
+renderCart();
+
+document.getElementById("cart-count").innerText = cart.length;
+}
+const texts = [
+
+  "Vibe Together",
+  "Wear Love",
+  "Style Together",
+  "Couple Goals",
+  "Made For Two"
+
+];
+
+let index = 0;
+
+setInterval(()=>{
+
+  index++;
+
+  if(index >= texts.length){
+
+    index = 0;
+
+  }
+
+  document.getElementById("changing-text")
+  .innerText = texts[index];
+
+},2000);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
