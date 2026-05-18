@@ -914,3 +914,91 @@ nav{
   color:inherit;
 
 }
+.wishlist-icon{
+  cursor:pointer;
+}
+
+.wishlist-sidebar{
+  width:380px;
+  height:100vh;
+  background:white;
+
+  position:fixed;
+  top:0;
+  left:-400px;
+
+  z-index:5000;
+
+  transition:.4s;
+
+  padding:25px;
+
+  overflow-y:auto;
+
+  box-shadow:5px 0 20px rgba(0,0,0,.15);
+}
+
+.wishlist-item{
+  display:flex;
+  gap:15px;
+  margin-bottom:20px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:15px;
+}
+
+.wishlist-item img{
+  width:80px;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.wishlist-btn{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  background:#f3f3f3;
+  border-radius:10px;
+  cursor:pointer;
+}
+.remove-wishlist-btn{
+
+  margin-top:10px;
+  padding:8px 14px;
+  border:none;
+  background:black;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+.quote-section{
+
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+
+  background: #111;
+  color: white;
+
+}
+
+.quote-section h2{
+
+  font-size: 38px;
+  margin-bottom: 25px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+}
+
+.quote-section p{
+
+  font-size: 22px;
+  max-width: 700px;
+  margin: auto;
+
+  opacity: 0.9;
+
+  transition: 0.4s;
+
+}
