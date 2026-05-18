@@ -107,6 +107,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   <!-- PRODUCTS -->
 
   <section class="section" id="couples">
+    <div class="recommend-box" id="recommendBox">
+
+  <h2>Recommended For You ❤️</h2>
+
+  <div class="recommend-products" id="recommendProducts">
+
+  </div>
+
+</div>
     <video class="bg-video" autoplay muted loop playsinline>
 
   <source src="fashion.mp4" type="video/mp4">
@@ -119,7 +128,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </div>
 
     <div class="products">
-
+<a href="product.html" class="product-link">
       <div class="card">
         <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop">
 
@@ -129,11 +138,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <button class="match-btn"
           onclick="addToCart(
             'Classic Couple Hoodie',
-            2499,'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=300','male')">ADD TO CART</button>
+            2199,'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop','male')">ADD TO CART</button>
         
       </div>
       </div>
-
+      </a>
+      <a href="product2.html" class="product-link">
       <div class="card">
         <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop">
 
@@ -143,23 +153,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <button class="match-btn"
           onclick="addToCart(
             'Beige Streetwear Set',
-            2499,'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=300','male')">ADD TO CART</button>
+            2499,'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop','male')">ADD TO CART</button>
         </div>
       </div>
-
+    </a>
+<a href="product3.html" class="product-link">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=300">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=300">
 
         <div class="card-content">
           <h3>Pastel Love Hoodie</h3>
           <div class="price">₹1,999</div>
           <button class="match-btn"
           onclick="addToCart('Pastel Love Hoodie',
-            2499,'3.png','female')">ADD TO CART</button>
+            1999,'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=300','female')">ADD TO CART</button>
         </div>
       </div>
 
     </div>
+    </a>
 
   </section>
 
@@ -427,6 +439,7 @@ function addToCart(name,price,image,gender){
   .innerText = cart.length;
 
   renderCart();
+  showRecommendations(name);
 
 }
 
@@ -610,6 +623,58 @@ function selectForMatch(index){
     }
 
     selectedMatch = [];
+
+  }
+
+}
+function showRecommendations(product){
+
+  let recommendProducts =
+  document.getElementById("recommendProducts");
+
+  recommendProducts.innerHTML = "";
+
+  if(product.includes("Hoodie")){
+
+    recommendProducts.innerHTML += `
+
+      <div class="recommend-card">
+
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=500">
+
+        <div class="recommend-info">
+
+          <h3>Matching Beige Set</h3>
+
+          <p>₹2,999</p>
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+  if(product.includes("Streetwear")){
+
+    recommendProducts.innerHTML += `
+
+      <div class="recommend-card">
+
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=500">
+
+        <div class="recommend-info">
+
+          <h3>Pastel Couple Fit</h3>
+
+          <p>₹2,499</p>
+
+        </div>
+
+      </div>
+
+    `;
 
   }
 
