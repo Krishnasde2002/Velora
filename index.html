@@ -70,6 +70,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </div>
 
   </section>
+  <section class="quote-section">
+
+  <h2>Love Quote Of The Moment ❤️</h2>
+
+  <p id="love-quote">
+    "Style is better when shared."
+  </p>
+
+</section>
   <!-- FASHION VIDEO SECTION -->
 
 
@@ -679,6 +688,43 @@ function showRecommendations(product){
   }
 
 }
+const quotes = [
+
+  "Style is better when shared. ❤️",
+
+  "Together, every outfit becomes a memory.",
+
+  "Couples who dress together stay together.",
+
+  "Love is the real luxury.",
+
+  "Your vibe attracts your matching fit.",
+
+  "Fashion fades, but couple vibes stay forever.",
+
+  "Every love story deserves a stylish chapter.",
+
+  "Two hearts. One aesthetic. ❤️",
+
+  "Matching outfits, unmatched chemistry.",
+
+  "Where love meets fashion."
+
+];
+
+function changeQuote(){
+
+  let random =
+  Math.floor(Math.random() * quotes.length);
+
+  document.getElementById("love-quote")
+  .innerText = quotes[random];
+
+}
+
+changeQuote();
+
+setInterval(changeQuote,4000);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
@@ -701,4 +747,3 @@ function showRecommendations(product){
 </div>
 </body>
 </html>
-
