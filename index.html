@@ -1,749 +1,1004 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velora</title>
-  <link rel="stylesheet" href="Window.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-</head>
-<body>
-
-  <!-- NAVBAR -->
-
-  <nav>
-
-    <div class="logo">
-      VELORA
-    </div>
-
-    <ul>
-      <li>HOME</li>
-      <li>SHOP</li>
-      <li>COUPLE COLLECTION</li>
-      <li>MEN</li>
-      <li>WOMEN</li>
-      <li>NEW ARRIVALS</li>
-    </ul>
-
-    <div class="icons">
-      <i class="fa-solid fa-magnifying-glass search-btn"></i> 🤍   
-      <div class="cart-icon" onclick="openCart()">
-    🛒 <span id="cart-count">0</span>
-  </div>
-    </div>
-
-  </nav>
-  <!-- SEARCH BOX -->
-
-<div class="search-box" id="searchBox">
-
-  <input
-  type="text"
-  placeholder="Search outfits...">
-
-</div>
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-content">
-
-      <h1>
-        Match Your <br>
-        <span id="changing-text">Vibe Together</span>
-      </h1>
-
-      <p>
-        Explore premium couple outfits designed to match your vibe and create unforgettable moments together.
-      </p>
-
-      <div class="hero-btns">
-        <button class="btn1">SHOP COUPLES</button>
-        <button class="btn2">EXPLORE COLLECTION</button>
-      </div>
-
-    </div>
-
-  </section>
-  <section class="quote-section">
-
-  <h2>Love Quote Of The Moment ❤️</h2>
-
-  <p id="love-quote">
-    "Style is better when shared."
-  </p>
-
-</section>
-  <!-- FASHION VIDEO SECTION -->
-
-
-
-  <!-- FEATURES -->
-
-  <section class="features">
-
-    <div class="feature-box">
-      ❤️
-      <h3>Perfect Match</h3>
-      <p>Curated for couples</p>
-    </div>
-
-    <div class="feature-box">
-      ✨
-      <h3>Premium Quality</h3>
-      <p>Comfort & durability</p>
-    </div>
-
-    <div class="feature-box">
-      🚚
-      <h3>Fast Delivery</h3>
-      <p>Across India</p>
-    </div>
-
-    <div class="feature-box">
-      🔄
-      <h3>Easy Returns</h3>
-      <p>Hassle free returns</p>
-    </div>
-
-  </section>
-
-  <!-- PRODUCTS -->
-
-  <section class="section" id="couples">
-    <div class="recommend-box" id="recommendBox">
-
-  <h2>Recommended For You ❤️</h2>
-
-  <div class="recommend-products" id="recommendProducts">
-
-  </div>
-
-</div>
-    <video class="bg-video" autoplay muted loop playsinline>
-
-  <source src="fashion.mp4" type="video/mp4">
-
-</video>
-
-    <div class="section-title">
-      <h2>Trending Couple Fits</h2>
-      <span>VIEW ALL</span>
-    </div>
-
-    <div class="products">
-<a href="product1.html" class="product-link">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop">
-
-        <div class="card-content">
-          <h3>Classic Couple Hoodie</h3>
-          <div class="price">₹2,199</div>
-          <button class="match-btn"
-          onclick="addToCart(
-            'Classic Couple Hoodie',
-            2199,'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop','male')">ADD TO CART</button>
-        
-      </div>
-      </div>
-      </a>
-      <a href="product2.html" class="product-link">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop">
-
-        <div class="card-content">
-          <h3>Beige Streetwear Set</h3>
-          <div class="price">₹2,499</div>
-          <button class="match-btn"
-          onclick="addToCart(
-            'Beige Streetwear Set',
-            2499,'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop','male')">ADD TO CART</button>
-        </div>
-      </div>
-    </a>
-<a href="product3.html" class="product-link">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=300">
-
-        <div class="card-content">
-          <h3>Pastel Love Hoodie</h3>
-          <div class="price">₹1,999</div>
-          <button class="match-btn"
-          onclick="addToCart('Pastel Love Hoodie',
-            1999,'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=300','female')">ADD TO CART</button>
-        </div>
-      </div>
-
-    </div>
-    </a>
-
-  </section>
-
-  <!-- MATCH SCORE -->
-
-<section class="match-section">
-
-  <h1>Couple Match Score</h1>
-
-  <p>
-    Select your vibes & see your compatibility.
-  </p>
-
-  <div class="match-box">
-
-    <select id="boyStyle">
-
-      <option value="0">
-        Select His Outfit
-      </option>
-
-      <option value="95">
-        Streetwear
-      </option>
-
-      <option value="88">
-        Minimal
-      </option>
-
-      <option value="92">
-        Luxury
-      </option>
-
-    </select>
-
-    <select id="girlStyle">
-
-      <option value="0">
-        Select Her Outfit
-      </option>
-
-      <option value="95">
-        Streetwear
-      </option>
-
-      <option value="88">
-        Minimal
-      </option>
-
-      <option value="92">
-        Luxury
-      </option>
-
-    </select>
-
-    <button onclick="calculateMatch()">
-      CHECK MATCH
-    </button>
-
-  </div>
-
-  <div id="matchResult">
-
-    0% Match
-
-  </div>
-
-</section>
-<!-- TRY ON SECTION -->
-
-<section class="tryon-section">
-
-  <div class="tryon-left">
-
-    <h1>Virtual Try-On</h1>
-
-    <p>
-      Upload your image and preview your outfit instantly.
-    </p>
-
-    <input type="file" id="upload" accept="image/*">
-
-  </div>
-
-<div class="preview-box">
-
-  <img id="userImage" class="user-img">
-
-  <img
-    src="hoodie.png"
-    class="hoodie"
-    id="hoodie"
-  >
-
-</div>
-
-</section>
-  <!-- BANNER -->
-
-  <section class="banner">
-
-    <div class="banner-content">
-
-      <h1>
-        Buy Together <br>
-        & Save More
-      </h1>
-
-      <p>
-        Shop matching couple fits and unlock exclusive combo offers designed specially for stylish couples.
-      </p>
-
-      <button>EXPLORE COMBOS</button>
-
-    </div>
-    <div class="banner-points">
-
-  <div class="point">
-    ✨
-    <h3>Special Discounts</h3>
-    <p>On Couple Combos</p>
-  </div>
-
-  <div class="point">
-    ❤️
-    <h3>Perfectly Matched</h3>
-    <p>Handpicked For You</p>
-  </div>
-
-  <div class="point">
-    🔥
-    <h3>Trending Styles</h3>
-    <p>Latest Couple Fits</p>
-  </div>
-
-  <div class="point">
-    🛍️
-    <h3>Premium Quality</h3>
-    <p>Comfort You’ll Love</p>
-  </div>
-
-</div>
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <h1>VELORA</h1>
-
-    <p>
-      Match your vibe together with premium couple fashion designed for modern love stories.
-    </p>
-
-  </footer>
-  <div class="cart-sidebar" id="cart">
-
-  <div class="cart-top">
-
-    <h2>Your Cart</h2>
-
-    <span onclick="closeCart()">✖</span>
-
-  </div>
-
-  <div id="cart-items"></div>
-
-  <div id="match-status">
-
-    Select 2 outfits ❤️
-
-  </div>
-
-</div>
-<script>
-
-const upload = document.getElementById("upload");
-const userImage = document.getElementById("userImage");
-const hoodie = document.getElementById("hoodie");
-
-upload.addEventListener("change", async function(){
-
-  const file = this.files[0];
-
-  if(file){
-
-    const imageURL = URL.createObjectURL(file);
-
-    userImage.src = imageURL;
-
-    userImage.onload = async ()=>{
-
-      const pose = new Pose({
-
-        locateFile: (file)=>{
-          return `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`;
-        }
-
-      });
-
-      pose.setOptions({
-
-        modelComplexity:1,
-        smoothLandmarks:true,
-        enableSegmentation:false,
-        minDetectionConfidence:0.5,
-        minTrackingConfidence:0.5
-
-      });
-
-      pose.onResults((results)=>{
-
-        if(results.poseLandmarks){
-
-          const leftShoulder = results.poseLandmarks[11];
-          const rightShoulder = results.poseLandmarks[12];
-
-          const previewBox = document.querySelector(".preview-box");
-
-          const boxWidth = previewBox.offsetWidth;
-          const boxHeight = previewBox.offsetHeight;
-
-          const leftX = leftShoulder.x * boxWidth;
-          const rightX = rightShoulder.x * boxWidth;
-
-          const shoulderWidth = Math.abs(rightX - leftX);
-
-          let hoodieWidth = shoulderWidth * 1.2;
-          hoodie.style.width = hoodieWidth + "px";
-
-          hoodie.style.left =
-          ((leftX + rightX) / 2) - (hoodieWidth / 2) + "px";
-
-          hoodie.style.top =
-            (leftShoulder.y * boxHeight) - 30 + "px";
-
-        }
-
-      });
-
-      await pose.send({image:userImage});
-
-    };
-
-  }
-
-});
-let cart = JSON.parse(localStorage.getItem("veloraCart")) || [];
-
-function addToCart(name,price,image,gender){
-
-  cart.push({
-    name,
-    price,
-    image,
-    gender
-  });
-
-  localStorage.setItem(
-    "veloraCart",
-    JSON.stringify(cart)
-  );
-
-  document.getElementById("cart-count")
-  .innerText = cart.length;
-
-  renderCart();
-  showRecommendations(name);
-
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+html{
+  scroll-behavior:smooth;
 }
-
-function openCart(){
-
-  document.getElementById("cart").style.right = "0";
-
-}
-
-function closeCart(){
-
-  document.getElementById("cart").style.right = "-400px";
-
-}
-function renderCart(){
-
-  let cartItems = document.getElementById("cart-items");
-
-  let total = 0;
-
-  cartItems.innerHTML = "";
-
-  cart.forEach((item,index)=>{
-
-    total += item.price;
-
-    cartItems.innerHTML += `
-
-      <div class="cart-item">
-
-        <img src="${item.image}" class="cart-img">
-
-        <div class="cart-info">
-
-          <h3>${item.name}</h3>
-
-          <p>₹${item.price}</p>
-          <button class="pair-btn"
-onclick="selectForMatch(${index})">
-
-Match Outfit
-
-</button>
-
-          <button class="remove-btn"
-          onclick="removeItem(${index})">
-          Remove
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-  });
-
-  cartItems.innerHTML += `
-
-    <div class="cart-total">
-
-      TOTAL : ₹${total}
-
-    </div>
-
-  `;
-
-}
-
-
-
-function removeItem(index){
-
-  cart.splice(index,1);
-
-  localStorage.setItem(
-    "veloraCart",
-    JSON.stringify(cart)
-  );
-
-  document.getElementById("cart-count")
-  .innerText = cart.length;
-
-  renderCart();
-
-}
-
-document.getElementById("cart-count").innerText = cart.length;
-
-const texts = [
-
-  "Vibe Together",
-  "Wear Love",
-  "Style Together",
-  "Couple Goals",
-  "Made For Two"
-
-];
-
-let index = 0;
-
-setInterval(()=>{
-
-  index++;
-
-  if(index >= texts.length){
-
-    index = 0;
-
-  }
-
-  document.getElementById("changing-text")
-  .innerText = texts[index];
-
-},2000);
-function calculateMatch(){
-
-  let boy =
-  document.getElementById("boyStyle").value;
-
-  let girl =
-  document.getElementById("girlStyle").value;
-
-  if(boy == 0 || girl == 0){
-
-    document.getElementById("matchResult")
-    .innerHTML =
-    "Select Both Styles";
-
-    return;
-
-  }
-
-  let score =
-  Math.floor((Number(boy) + Number(girl)) / 2);
-
-  document.getElementById("matchResult")
-  .innerHTML =
-  score + "% Match ❤️";
-
-}
-renderCart();
-
-document.getElementById("cart-count")
-.innerText = cart.length;
-let selectedMatch = [];
-
-function selectForMatch(index){
-
-  if(selectedMatch.length >= 2){
-
-    return;
-
-  }
-
-  selectedMatch.push(cart[index]);
-  console.log(selectedMatch);
-
-  if(selectedMatch.length == 2){
-
-    let first = selectedMatch[0];
-    let second = selectedMatch[1];
-
-    if(first.gender == second.gender){
-
-      document.getElementById("match-status")
-      .innerHTML =
-      "❌ You selected 2 " +
-      first.gender +
-      " outfits";
-
-    }else{
-
-      let score =
-      Math.floor(Math.random()*15)+85;
-
-      document.getElementById("match-status")
-      .innerHTML =
-      score + "% Couple Match ❤️";
-
+    body{
+      background:#f7f3f0;
+      font-family:'Poppins',sans-serif;
+      color:#222;
     }
 
-    selectedMatch = [];
+    /* NAVBAR */
 
+nav{
+  width:100%;
+  height:75px;
+
+  background:rgba(0,0,0,.45);
+
+  backdrop-filter:blur(12px);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:0 60px;
+
+  position:fixed;
+  top:0;
+
+  z-index:1000;
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+    .logo{
+      font-size:38px;
+      color:white;
+      font-family:'Cormorant Garamond',serif;
+      letter-spacing:2px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:35px;
+      list-style:none;
+    }
+
+    nav ul li{
+      color:white;
+      font-size:14px;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    nav ul li:hover{
+      color:#d7a7a0;
+    }
+
+    .icons{
+      display:flex;
+      gap:20px;
+      color:white;
+      font-size:18px;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      width:100%;
+      height:100vh;
+      background:linear-gradient(to right, rgba(0,0,0,.7), rgba(0,0,0,.2));
+      background-image:url("3.png");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      padding-left:80px;
+    }
+
+    .hero-content{
+      max-width:550px;
+      color:white;
+    }
+
+    .hero-content h1{
+      font-size:85px;
+      line-height:90px;
+      font-family:'Cormorant Garamond',serif;
+      font-weight:500;
+    }
+
+    .hero-content span{
+      color:#e3a5a1;
+      font-style:italic;
+    }
+
+    .hero-content p{
+      margin-top:25px;
+      font-size:17px;
+      line-height:30px;
+      color:#ddd;
+    }
+
+    .hero-btns{
+      margin-top:40px;
+      display:flex;
+      gap:20px;
+    }
+
+.btn1{
+  padding:16px 35px;
+  background:#d49a96;
+  border:none;
+  color:white;
+  border-radius:10px;
+  font-weight:500;
+  cursor:pointer;
+
+  transition:.4s;
+}
+
+.btn1:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(212,154,150,.4);
+}
+
+    .btn2{
+      padding:16px 35px;
+      background:transparent;
+      border:1px solid white;
+      color:white;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    /* FEATURES */
+
+    .features{
+      width:100%;
+      background:white;
+      display:flex;
+      justify-content:space-around;
+      padding:40px 20px;
+      flex-wrap:wrap;
+    }
+
+    .feature-box{
+      text-align:center;
+    }
+
+    .feature-box h3{
+      margin-top:10px;
+      font-size:17px;
+    }
+
+    .feature-box p{
+      font-size:14px;
+      color:gray;
+      margin-top:5px;
+    }
+
+    /* PRODUCTS */
+
+.section{
+  padding:70px 70px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  z-index:1;
+}
+
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:40px;
+    }
+
+    .section-title h2{
+      font-size:34px;
+      font-family:'Cormorant Garamond',serif;
+    }
+
+    .section-title span{
+      color:#b57f7a;
+      cursor:pointer;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:18px;
+      overflow:hidden;
+      transition:.4s;
+      box-shadow:0 5px 20px rgba(0,0,0,.05);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:330px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card-content h3{
+      font-size:18px;
+      margin-bottom:10px;
+    }
+
+    .price{
+      color:#d49a96;
+      font-weight:600;
+      margin-bottom:15px;
+    }
+
+    .match-btn{
+      width:100%;
+      padding:12px;
+      border:none;
+      background:black;
+      color:white;
+      border-radius:10px;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    .match-btn:hover{
+      background:#d49a96;
+    }
+
+    /* BANNER */
+
+    .banner{
+      margin:80px 70px;
+      border-radius:25px;
+      overflow:hidden;
+      height:400px;
+      background:
+      linear-gradient(to right, rgba(0,0,0,.8), rgba(0,0,0,.2)),
+      url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      padding-left:70px;
+      justify-content:space-between;
+      padding-right:70px;
+    }
+
+    .banner-content{
+      color:white;
+      max-width:500px;
+    }
+
+    .banner-content h1{
+      font-size:60px;
+      font-family:'Cormorant Garamond',serif;
+      line-height:65px;
+    }
+
+    .banner-content p{
+      margin-top:20px;
+      line-height:30px;
+      color:#ddd;
+    }
+
+    .banner-content button{
+      margin-top:30px;
+      padding:15px 35px;
+      border:none;
+      background:#d49a96;
+      color:white;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:black;
+      color:white;
+      padding:60px;
+      margin-top:80px;
+    }
+
+    footer h1{
+      font-size:45px;
+      font-family:'Cormorant Garamond',serif;
+      margin-bottom:20px;
+    }
+
+    footer p{
+      color:#aaa;
+      line-height:30px;
+    }
+
+    @media(max-width:900px){
+
+     .bg-video{
+
+       object-position:center;
+
+      }
+      nav{
+       padding:0 20px;
+      }
+      .products{
+        grid-template-columns:1fr;
+      }
+      nav ul{
+        display:none;
+      }
+
+      .hero{
+        padding:40px;
+      }
+
+      .hero-content h1{
+        font-size:55px;
+        line-height:60px;
+      }
+
+      .banner{
+        margin:30px;
+        padding:30px;
+      }
+
+      .banner-content h1{
+        font-size:40px;
+        line-height:45px;
+      }
+
+      .section{
+        padding:40px 30px;
+      }
+
+    }
+    .video-section{
+       height:40vh;
+    }
+/* TRY ON SECTION */
+
+.tryon-section{
+  width:100%;
+  padding:80px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:80px;
+  flex-wrap:wrap;
+  background:#fff;
+}
+
+.tryon-left{
+  max-width:400px;
+}
+
+.tryon-left h1{
+  font-size:55px;
+  font-family:'Cormorant Garamond',serif;
+  margin-bottom:20px;
+}
+
+.tryon-left p{
+  color:gray;
+  line-height:30px;
+  margin-bottom:30px;
+}
+
+.tryon-left input{
+  padding:12px;
+}
+
+.preview-box{
+  width:350px;
+  height:500px;
+  background:#f1f1f1;
+  border-radius:25px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.user-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hoodie{
+  position:absolute;
+  left:50%;
+  top:140px;
+  transform:translateX(-50%);
+  width:250px;
+  pointer-events:none;
+  transition:.3s;
+}
+.banner-points{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  margin-top:40px;
+}
+
+.point{
+  color:white;
+}
+
+.point h3{
+  margin-top:8px;
+  font-size:18px;
+}
+
+.point p{
+  font-size:14px;
+  color:#ddd;
+  margin-top:5px;
+  line-height:22px;
+}
+/* CART */
+
+.cart-icon{
+  cursor:pointer;
+}
+
+#cart-count{
+  background:#d49a96;
+  padding:2px 8px;
+  border-radius:50%;
+  font-size:12px;
+}
+
+.cart-sidebar{
+  width:380px;
+  height:100vh;
+  background:white;
+  position:fixed;
+  top:0;
+  right:-400px;
+  z-index:99999;
+  transition:.4s;
+  padding:25px;
+  overflow-y:auto;
+  box-shadow:-5px 0 20px rgba(0,0,0,.15);
+}
+
+.cart-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.cart-top span{
+  cursor:pointer;
+  font-size:22px;
+}
+
+.cart-item{
+  margin-bottom:20px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:15px;
+}
+
+.cart-item h3{
+  font-size:17px;
+}
+
+.cart-item p{
+  margin-top:8px;
+  color:#d49a96;
+}
+.cart-item{
+  display:flex;
+  gap:15px;
+  align-items:center;
+  margin-bottom:20px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:15px;
+}
+
+.cart-img{
+  width:80px;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.cart-info{
+  flex:1;
+}
+
+.remove-btn{
+  margin-top:10px;
+  padding:8px 14px;
+  border:none;
+  background:black;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.remove-btn:hover{
+  background:#d49a96;
+}
+
+.cart-total{
+  margin-top:30px;
+  font-size:22px;
+  font-weight:600;
+  text-align:center;
+  padding:20px;
+  background:#f5f5f5;
+  border-radius:15px;
+}
+.card{
+  position:relative;
+  overflow:hidden;
+}
+.card img{
+  transition:.5s;
+}
+
+.card:hover img{
+  transform:scale(1.08);
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,.15);
+  transition:.6s;
+  z-index:2;
+}
+
+.card:hover::before{
+  left:100%;
+}
+.hero-content h1{
+  font-size:48px;
+  line-height:52px;
+}
+.card{
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#eee;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#d49a96;
+  border-radius:20px;
+}
+.hero-content{
+  animation:fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 
 }
-function showRecommendations(product){
+#changing-text{
+  color:#e3a5a1;
+  font-style:italic;
 
-  let recommendProducts =
-  document.getElementById("recommendProducts");
+  transition:.5s;
+}
+/* VIDEO SECTION */
 
-  recommendProducts.innerHTML = "";
+.video-section{
+  width:100%;
+  height:70vh;
 
-  if(product.includes("Hoodie")){
+  overflow:hidden;
 
-    recommendProducts.innerHTML += `
+  position:relative;
+}
 
-      <div class="recommend-card">
+.video-section video{
+  width:100%;
+  height:100%;
 
-        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=500">
+  object-fit:cover;
 
-        <div class="recommend-info">
+  display:block;
+}
+.bg-video{
 
-          <h3>Matching Beige Set</h3>
+  position:absolute;
 
-          <p>₹2,999</p>
+  top:0;
+  left:0;
 
-        </div>
+  width:100%;
+  height:100%;
 
-      </div>
+  object-fit:cover;
 
-    `;
+  opacity:.10;
 
+  z-index:-1;
+
+  pointer-events:none;
+
+}
+/* SEARCH */
+
+.search-btn{
+  cursor:pointer;
+  transition:.3s;
+}
+
+.search-btn:hover{
+  color:#d49a96;
+}
+
+.search-box{
+
+  position:fixed;
+
+  top:90px;
+  right:60px;
+
+  width:300px;
+
+  background:white;
+
+  padding:15px;
+
+  border-radius:15px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+  display:none;
+
+  z-index:5000;
+}
+
+.search-box input{
+
+  width:100%;
+
+  padding:12px;
+
+  border:none;
+
+  outline:none;
+
+  font-size:15px;
+
+}
+/* MATCH SCORE */
+
+.match-section{
+
+  width:100%;
+
+  padding:80px 20px;
+
+  background:white;
+
+  text-align:center;
+
+}
+
+.match-section h1{
+
+  font-size:55px;
+
+  font-family:'Cormorant Garamond',serif;
+
+}
+
+.match-section p{
+
+  color:gray;
+
+  margin-top:15px;
+
+}
+
+.match-box{
+
+  margin-top:40px;
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:20px;
+
+  flex-wrap:wrap;
+
+}
+
+.match-box select,
+.match-box button{
+
+  padding:15px 20px;
+
+  border:none;
+
+  border-radius:10px;
+
+  font-size:15px;
+
+}
+
+.match-box button{
+
+  background:black;
+
+  color:white;
+
+  cursor:pointer;
+
+}
+
+#matchResult{
+
+  margin-top:40px;
+
+  font-size:50px;
+
+  font-weight:600;
+
+  color:#d49a96;
+
+}
+.pair-btn{
+
+  margin-top:10px;
+
+  padding:10px 15px;
+
+  border:none;
+
+  background:#d49a96;
+
+  color:white;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+}
+#match-status{
+
+  margin-top:25px;
+
+  text-align:center;
+
+  font-size:24px;
+
+  font-weight:600;
+
+  color:#d49a96;
+
+}
+#match-status{
+
+  margin-top:25px;
+  background:white;
+  padding:20px;
+  border-radius:18px;
+
+  text-align:center;
+
+  font-size:24px;
+  font-weight:600;
+
+  color:#d49a96;
+
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+  animation:pop .3s ease;
+
+}
+
+@keyframes pop{
+
+  0%{
+    transform:scale(.8);
+    opacity:0;
   }
 
-  if(product.includes("Streetwear")){
-
-    recommendProducts.innerHTML += `
-
-      <div class="recommend-card">
-
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=500">
-
-        <div class="recommend-info">
-
-          <h3>Pastel Couple Fit</h3>
-
-          <p>₹2,499</p>
-
-        </div>
-
-      </div>
-
-    `;
-
+  100%{
+    transform:scale(1);
+    opacity:1;
   }
 
 }
-const quotes = [
+.recommend-box{
 
-  "Style is better when shared. ❤️",
-
-  "Together, every outfit becomes a memory.",
-
-  "Couples who dress together stay together.",
-
-  "Love is the real luxury.",
-
-  "Your vibe attracts your matching fit.",
-
-  "Fashion fades, but couple vibes stay forever.",
-
-  "Every love story deserves a stylish chapter.",
-
-  "Two hearts. One aesthetic. ❤️",
-
-  "Matching outfits, unmatched chemistry.",
-
-  "Where love meets fashion."
-
-];
-
-function changeQuote(){
-
-  let random =
-  Math.floor(Math.random() * quotes.length);
-
-  document.getElementById("love-quote")
-  .innerText = quotes[random];
+  margin-bottom:40px;
+  position:relative;
+  z-index:2;
 
 }
 
-changeQuote();
+.recommend-box h2{
 
-setInterval(changeQuote,4000);
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  color:white;
+  margin-bottom:25px;
+  font-size:32px;
 
-  <div class="cart-top">
+}
 
-    <h2>Your Cart</h2>
+.recommend-products{
 
-    <span onclick="closeCart()">✖</span>
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding-bottom:10px;
 
-  </div>
+}
 
-  <div id="cart-items"></div>
-  <div id="match-status">
+.recommend-products::-webkit-scrollbar{
 
-  Select 2 outfits ❤️
+  height:6px;
 
-</div>
+}
 
-</div>
-</body>
-</html>
+.recommend-products::-webkit-scrollbar-thumb{
+
+  background:#d49a96;
+  border-radius:20px;
+
+}
+
+.recommend-card{
+
+  min-width:220px;
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.recommend-card img{
+
+  width:100%;
+  height:240px;
+  object-fit:cover;
+
+}
+
+.recommend-info{
+
+  padding:15px;
+
+}
+
+.recommend-info h3{
+
+  font-size:17px;
+  margin-bottom:8px;
+
+}
+
+.recommend-info p{
+
+  color:#d49a96;
+  font-weight:600;
+
+}
+.product-link{
+
+  text-decoration:none;
+  color:inherit;
+
+}
+.wishlist-icon{
+  cursor:pointer;
+}
+
+.wishlist-sidebar{
+  width:380px;
+  height:100vh;
+  background:white;
+
+  position:fixed;
+  top:0;
+  left:-400px;
+
+  z-index:5000;
+
+  transition:.4s;
+
+  padding:25px;
+
+  overflow-y:auto;
+
+  box-shadow:5px 0 20px rgba(0,0,0,.15);
+}
+
+.wishlist-item{
+  display:flex;
+  gap:15px;
+  margin-bottom:20px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:15px;
+}
+
+.wishlist-item img{
+  width:80px;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.wishlist-btn{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  background:#f3f3f3;
+  border-radius:10px;
+  cursor:pointer;
+}
+.remove-wishlist-btn{
+
+  margin-top:10px;
+  padding:8px 14px;
+  border:none;
+  background:black;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+.quote-section{
+
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+
+  background: #111;
+  color: white;
+
+}
+
+.quote-section h2{
+
+  font-size: 38px;
+  margin-bottom: 25px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+}
+
+.quote-section p{
+
+  font-size: 22px;
+  max-width: 700px;
+  margin: auto;
+
+  opacity: 0.9;
+
+  transition: 0.4s;
+
+}
