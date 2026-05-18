@@ -3,17 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velora</title>
-  <link rel="stylesheet" href="Window.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Classic Couple Hoodie | Velora</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#f7f3f0;
+      font-family:'Poppins',sans-serif;
+      color:#222;
+    }
+
+    nav{
+      width:100%;
+      height:75px;
+      background:black;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 60px;
+      position:fixed;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      color:white;
+      font-size:38px;
+      font-family:'Cormorant Garamond',serif;
+      letter-spacing:2px;
+    }
+
+    .product-page{
+      width:100%;
+      min-height:100vh;
+      padding:140px 80px 80px;
+      display:flex;
+      gap:70px;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .product-image{
+      flex:1;
+      min-width:320px;
+    }
+
+    .product-image img{
+      width:100%;
+      max-width:550px;
+      border-radius:25px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .product-details{
+      flex:1;
+      min-width:320px;
+    }
+
+    .product-details h1{
+      font-size:60px;
+      line-height:65px;
+      font-family:'Cormorant Garamond',serif;
+      margin-bottom:20px;
+    }
+
+    .price{
+      color:#d49a96;
+      font-size:32px;
+      font-weight:600;
+      margin-bottom:25px;
+    }
+
+    .desc{
+      color:gray;
+      line-height:32px;
+      margin-bottom:35px;
+      max-width:500px;
+    }
+
+    .sizes{
+      display:flex;
+      gap:15px;
+      margin-bottom:35px;
+      flex-wrap:wrap;
+    }
+
+    .size-btn{
+      width:60px;
+      height:60px;
+      border-radius:12px;
+      border:none;
+      background:white;
+      cursor:pointer;
+      font-weight:600;
+      transition:.3s;
+      box-shadow:0 5px 15px rgba(0,0,0,.05);
+    }
+
+    .size-btn:hover{
+      background:black;
+      color:white;
+    }
+
+    .add-cart{
+
+      padding:18px 45px;
+      border:none;
+      background:black;
+      color:white;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:16px;
+      transition:.3s;
+
+    }
+
+    .add-cart:hover{
+      background:#d49a96;
+    }
+
+    .recommend-section{
+      width:100%;
+      padding:0 80px 80px;
+    }
+
+    .recommend-section h2{
+      font-size:42px;
+      font-family:'Cormorant Garamond',serif;
+      margin-bottom:30px;
+    }
+
+    .recommend-products{
+      display:flex;
+      gap:25px;
+      overflow-x:auto;
+      padding-bottom:10px;
+    }
+
+    .recommend-card{
+      min-width:250px;
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 5px 20px rgba(0,0,0,.08);
+    }
+
+    .recommend-card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+
+    .recommend-info{
+      padding:18px;
+    }
+
+    .recommend-info h3{
+      margin-bottom:10px;
+    }
+
+    .recommend-info p{
+      color:#d49a96;
+      font-weight:600;
+    }
+
+    .cart-popup{
+
+      position:fixed;
+      right:30px;
+      bottom:30px;
+      background:black;
+      color:white;
+      padding:18px 25px;
+      border-radius:15px;
+
+      opacity:0;
+      pointer-events:none;
+
+      transition:.4s;
+
+    }
+
+    .cart-popup.show{
+      opacity:1;
+    }
+
+    @media(max-width:900px){
+
+      nav{
+        padding:0 25px;
+      }
+
+      .product-page{
+        padding:120px 25px 50px;
+      }
+
+      .product-details h1{
+        font-size:42px;
+        line-height:48px;
+      }
+
+      .recommend-section{
+        padding:0 25px 50px;
+      }
+
+    }
+
+  </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
 
   <nav>
 
@@ -21,652 +230,67 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       VELORA
     </div>
 
-    <ul>
-      <li>HOME</li>
-      <li>SHOP</li>
-      <li>COUPLE COLLECTION</li>
-      <li>MEN</li>
-      <li>WOMEN</li>
-      <li>NEW ARRIVALS</li>
-    </ul>
-
-    <div class="icons">
-      <i class="fa-solid fa-magnifying-glass search-btn"></i> 🤍   
-      <div class="cart-icon" onclick="openCart()">
-    🛒 <span id="cart-count">0</span>
-  </div>
-    </div>
-
   </nav>
-  <!-- SEARCH BOX -->
 
-<div class="search-box" id="searchBox">
+  <section class="product-page">
 
-  <input
-  type="text"
-  placeholder="Search outfits...">
+    <div class="product-image">
 
-</div>
-  <!-- HERO -->
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop">
 
-  <section class="hero">
+    </div>
 
-    <div class="hero-content">
+    <div class="product-details">
 
       <h1>
-        Match Your <br>
-        <span id="changing-text">Vibe Together</span>
+        Classic Couple Hoodie
       </h1>
 
-      <p>
-        Explore premium couple outfits designed to match your vibe and create unforgettable moments together.
+      <div class="price">
+        ₹2,199
+      </div>
+
+      <p class="desc">
+
+        Premium oversized hoodie designed for modern couples. Soft fabric, aesthetic vibe and perfect comfort for every season.
+
       </p>
 
-      <div class="hero-btns">
-        <button class="btn1">SHOP COUPLES</button>
-        <button class="btn2">EXPLORE COLLECTION</button>
+      <div class="sizes">
+
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+
       </div>
+
+      <button class="add-cart"
+      onclick="addToCart()">
+
+        ADD TO CART
+
+      </button>
 
     </div>
 
   </section>
-  <!-- FASHION VIDEO SECTION -->
 
+  <section class="recommend-section">
 
+    <h2>
+      You May Also Like ❤️
+    </h2>
 
-  <!-- FEATURES -->
+    <div class="recommend-products">
 
-  <section class="features">
+      <div class="recommend-card">
 
-    <div class="feature-box">
-      ❤️
-      <h3>Perfect Match</h3>
-      <p>Curated for couples</p>
-    </div>
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000">
 
-    <div class="feature-box">
-      ✨
-      <h3>Premium Quality</h3>
-      <p>Comfort & durability</p>
-    </div>
+        <div class="recommend-info">
 
-    <div class="feature-box">
-      🚚
-      <h3>Fast Delivery</h3>
-      <p>Across India</p>
-    </div>
-
-    <div class="feature-box">
-      🔄
-      <h3>Easy Returns</h3>
-      <p>Hassle free returns</p>
-    </div>
-
-  </section>
-
-  <!-- PRODUCTS -->
-
-  <section class="section" id="couples">
-    <div class="recommend-box" id="recommendBox">
-
-  <h2>Recommended For You ❤️</h2>
-
-  <div class="recommend-products" id="recommendProducts">
-
-  </div>
-
-</div>
-    <video class="bg-video" autoplay muted loop playsinline>
-
-  <source src="fashion.mp4" type="video/mp4">
-
-</video>
-
-    <div class="section-title">
-      <h2>Trending Couple Fits</h2>
-      <span>VIEW ALL</span>
-    </div>
-
-    <div class="products">
-<a href="product.html" class="product-link">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop">
-
-        <div class="card-content">
-          <h3>Classic Couple Hoodie</h3>
-          <div class="price">₹2,199</div>
-          <button class="match-btn"
-          onclick="addToCart(
-            'Classic Couple Hoodie',
-            2199,'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop','male')">ADD TO CART</button>
-        
-      </div>
-      </div>
-      </a>
-      <a href="product2.html" class="product-link">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop">
-
-        <div class="card-content">
           <h3>Beige Streetwear Set</h3>
-          <div class="price">₹2,499</div>
-          <button class="match-btn"
-          onclick="addToCart(
-            'Beige Streetwear Set',
-            2499,'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop','male')">ADD TO CART</button>
-        </div>
-      </div>
-    </a>
-<a href="product3.html" class="product-link">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=300">
-
-        <div class="card-content">
-          <h3>Pastel Love Hoodie</h3>
-          <div class="price">₹1,999</div>
-          <button class="match-btn"
-          onclick="addToCart('Pastel Love Hoodie',
-            1999,'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=300','female')">ADD TO CART</button>
-        </div>
-      </div>
-
-    </div>
-    </a>
-
-  </section>
-
-  <!-- MATCH SCORE -->
-
-<section class="match-section">
-
-  <h1>Couple Match Score</h1>
-
-  <p>
-    Select your vibes & see your compatibility.
-  </p>
-
-  <div class="match-box">
-
-    <select id="boyStyle">
-
-      <option value="0">
-        Select His Outfit
-      </option>
-
-      <option value="95">
-        Streetwear
-      </option>
-
-      <option value="88">
-        Minimal
-      </option>
-
-      <option value="92">
-        Luxury
-      </option>
-
-    </select>
-
-    <select id="girlStyle">
-
-      <option value="0">
-        Select Her Outfit
-      </option>
-
-      <option value="95">
-        Streetwear
-      </option>
-
-      <option value="88">
-        Minimal
-      </option>
-
-      <option value="92">
-        Luxury
-      </option>
-
-    </select>
-
-    <button onclick="calculateMatch()">
-      CHECK MATCH
-    </button>
-
-  </div>
-
-  <div id="matchResult">
-
-    0% Match
-
-  </div>
-
-</section>
-<!-- TRY ON SECTION -->
-
-<section class="tryon-section">
-
-  <div class="tryon-left">
-
-    <h1>Virtual Try-On</h1>
-
-    <p>
-      Upload your image and preview your outfit instantly.
-    </p>
-
-    <input type="file" id="upload" accept="image/*">
-
-  </div>
-
-<div class="preview-box">
-
-  <img id="userImage" class="user-img">
-
-  <img
-    src="hoodie.png"
-    class="hoodie"
-    id="hoodie"
-  >
-
-</div>
-
-</section>
-  <!-- BANNER -->
-
-  <section class="banner">
-
-    <div class="banner-content">
-
-      <h1>
-        Buy Together <br>
-        & Save More
-      </h1>
-
-      <p>
-        Shop matching couple fits and unlock exclusive combo offers designed specially for stylish couples.
-      </p>
-
-      <button>EXPLORE COMBOS</button>
-
-    </div>
-    <div class="banner-points">
-
-  <div class="point">
-    ✨
-    <h3>Special Discounts</h3>
-    <p>On Couple Combos</p>
-  </div>
-
-  <div class="point">
-    ❤️
-    <h3>Perfectly Matched</h3>
-    <p>Handpicked For You</p>
-  </div>
-
-  <div class="point">
-    🔥
-    <h3>Trending Styles</h3>
-    <p>Latest Couple Fits</p>
-  </div>
-
-  <div class="point">
-    🛍️
-    <h3>Premium Quality</h3>
-    <p>Comfort You’ll Love</p>
-  </div>
-
-</div>
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <h1>VELORA</h1>
-
-    <p>
-      Match your vibe together with premium couple fashion designed for modern love stories.
-    </p>
-
-  </footer>
-  <div class="cart-sidebar" id="cart">
-
-  <div class="cart-top">
-
-    <h2>Your Cart</h2>
-
-    <span onclick="closeCart()">✖</span>
-
-  </div>
-
-  <div id="cart-items"></div>
-
-  <div id="match-status">
-
-    Select 2 outfits ❤️
-
-  </div>
-
-</div>
-<script>
-
-const upload = document.getElementById("upload");
-const userImage = document.getElementById("userImage");
-const hoodie = document.getElementById("hoodie");
-
-upload.addEventListener("change", async function(){
-
-  const file = this.files[0];
-
-  if(file){
-
-    const imageURL = URL.createObjectURL(file);
-
-    userImage.src = imageURL;
-
-    userImage.onload = async ()=>{
-
-      const pose = new Pose({
-
-        locateFile: (file)=>{
-          return `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`;
-        }
-
-      });
-
-      pose.setOptions({
-
-        modelComplexity:1,
-        smoothLandmarks:true,
-        enableSegmentation:false,
-        minDetectionConfidence:0.5,
-        minTrackingConfidence:0.5
-
-      });
-
-      pose.onResults((results)=>{
-
-        if(results.poseLandmarks){
-
-          const leftShoulder = results.poseLandmarks[11];
-          const rightShoulder = results.poseLandmarks[12];
-
-          const previewBox = document.querySelector(".preview-box");
-
-          const boxWidth = previewBox.offsetWidth;
-          const boxHeight = previewBox.offsetHeight;
-
-          const leftX = leftShoulder.x * boxWidth;
-          const rightX = rightShoulder.x * boxWidth;
-
-          const shoulderWidth = Math.abs(rightX - leftX);
-
-          let hoodieWidth = shoulderWidth * 1.2;
-          hoodie.style.width = hoodieWidth + "px";
-
-          hoodie.style.left =
-          ((leftX + rightX) / 2) - (hoodieWidth / 2) + "px";
-
-          hoodie.style.top =
-            (leftShoulder.y * boxHeight) - 30 + "px";
-
-        }
-
-      });
-
-      await pose.send({image:userImage});
-
-    };
-
-  }
-
-});
-let cart = JSON.parse(localStorage.getItem("veloraCart")) || [];
-
-function addToCart(name,price,image,gender){
-
-  cart.push({
-    name,
-    price,
-    image,
-    gender
-  });
-
-  localStorage.setItem(
-    "veloraCart",
-    JSON.stringify(cart)
-  );
-
-  document.getElementById("cart-count")
-  .innerText = cart.length;
-
-  renderCart();
-  showRecommendations(name);
-
-}
-
-function openCart(){
-
-  document.getElementById("cart").style.right = "0";
-
-}
-
-function closeCart(){
-
-  document.getElementById("cart").style.right = "-400px";
-
-}
-function renderCart(){
-
-  let cartItems = document.getElementById("cart-items");
-
-  let total = 0;
-
-  cartItems.innerHTML = "";
-
-  cart.forEach((item,index)=>{
-
-    total += item.price;
-
-    cartItems.innerHTML += `
-
-      <div class="cart-item">
-
-        <img src="${item.image}" class="cart-img">
-
-        <div class="cart-info">
-
-          <h3>${item.name}</h3>
-
-          <p>₹${item.price}</p>
-          <button class="pair-btn"
-onclick="selectForMatch(${index})">
-
-Match Outfit
-
-</button>
-
-          <button class="remove-btn"
-          onclick="removeItem(${index})">
-          Remove
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-  });
-
-  cartItems.innerHTML += `
-
-    <div class="cart-total">
-
-      TOTAL : ₹${total}
-
-    </div>
-
-  `;
-
-}
-
-
-
-function removeItem(index){
-
-  cart.splice(index,1);
-
-  localStorage.setItem(
-    "veloraCart",
-    JSON.stringify(cart)
-  );
-
-  document.getElementById("cart-count")
-  .innerText = cart.length;
-
-  renderCart();
-
-}
-
-document.getElementById("cart-count").innerText = cart.length;
-
-const texts = [
-
-  "Vibe Together",
-  "Wear Love",
-  "Style Together",
-  "Couple Goals",
-  "Made For Two"
-
-];
-
-let index = 0;
-
-setInterval(()=>{
-
-  index++;
-
-  if(index >= texts.length){
-
-    index = 0;
-
-  }
-
-  document.getElementById("changing-text")
-  .innerText = texts[index];
-
-},2000);
-function calculateMatch(){
-
-  let boy =
-  document.getElementById("boyStyle").value;
-
-  let girl =
-  document.getElementById("girlStyle").value;
-
-  if(boy == 0 || girl == 0){
-
-    document.getElementById("matchResult")
-    .innerHTML =
-    "Select Both Styles";
-
-    return;
-
-  }
-
-  let score =
-  Math.floor((Number(boy) + Number(girl)) / 2);
-
-  document.getElementById("matchResult")
-  .innerHTML =
-  score + "% Match ❤️";
-
-}
-renderCart();
-
-document.getElementById("cart-count")
-.innerText = cart.length;
-let selectedMatch = [];
-
-function selectForMatch(index){
-
-  if(selectedMatch.length >= 2){
-
-    return;
-
-  }
-
-  selectedMatch.push(cart[index]);
-  console.log(selectedMatch);
-
-  if(selectedMatch.length == 2){
-
-    let first = selectedMatch[0];
-    let second = selectedMatch[1];
-
-    if(first.gender == second.gender){
-
-      document.getElementById("match-status")
-      .innerHTML =
-      "❌ You selected 2 " +
-      first.gender +
-      " outfits";
-
-    }else{
-
-      let score =
-      Math.floor(Math.random()*15)+85;
-
-      document.getElementById("match-status")
-      .innerHTML =
-      score + "% Couple Match ❤️";
-
-    }
-
-    selectedMatch = [];
-
-  }
-
-}
-function showRecommendations(product){
-
-  let recommendProducts =
-  document.getElementById("recommendProducts");
-
-  recommendProducts.innerHTML = "";
-
-  if(product.includes("Hoodie")){
-
-    recommendProducts.innerHTML += `
-
-      <div class="recommend-card">
-
-        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=500">
-
-        <div class="recommend-info">
-
-          <h3>Matching Beige Set</h3>
-
-          <p>₹2,999</p>
-
-        </div>
-
-      </div>
-
-    `;
-
-  }
-
-  if(product.includes("Streetwear")){
-
-    recommendProducts.innerHTML += `
-
-      <div class="recommend-card">
-
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=500">
-
-        <div class="recommend-info">
-
-          <h3>Pastel Couple Fit</h3>
 
           <p>₹2,499</p>
 
@@ -674,31 +298,73 @@ function showRecommendations(product){
 
       </div>
 
-    `;
+      <div class="recommend-card">
 
-  }
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000">
 
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+        <div class="recommend-info">
 
-  <div class="cart-top">
+          <h3>Pastel Love Hoodie</h3>
 
-    <h2>Your Cart</h2>
+          <p>₹1,999</p>
 
-    <span onclick="closeCart()">✖</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="cart-popup" id="popup">
+
+    Added To Cart ❤️
 
   </div>
 
-  <div id="cart-items"></div>
-  <div id="match-status">
+  <script>
 
-  Select 2 outfits ❤️
+function addToCart(){
 
-</div>
+  let cart =
+  JSON.parse(localStorage.getItem("veloraCart")) || [];
 
-</div>
+  let product = {
+
+    name:"Classic Couple Hoodie",
+
+    price:2199,
+
+    image:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=300",
+
+    gender:"male"
+
+  };
+
+  cart.push(product);
+
+  localStorage.setItem(
+    "veloraCart",
+    JSON.stringify(cart)
+  );
+
+  let popup =
+  document.getElementById("popup");
+
+  popup.classList.add("show");
+
+  popup.innerHTML =
+  "Added To Cart ❤️";
+
+  setTimeout(()=>{
+
+    popup.classList.remove("show");
+
+  },2000);
+
+}
+
+  </script>
+
 </body>
 </html>
-
